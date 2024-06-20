@@ -12,6 +12,7 @@ export function App() {
           fill: {
             color: "#ECD7A5",
           },
+          
         },
       ],
       viewBox: {
