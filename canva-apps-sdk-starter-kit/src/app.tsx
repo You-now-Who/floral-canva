@@ -6,13 +6,7 @@ export function App() {
   async function handleClick() {
     // Generate a random color
     const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-
-    // Add the shape to the design with the random color
-    await addNativeElement({
-      type: "SHAPE",
-      paths: [
-        {
-          d: "M50 50 \
+    let pathString = `M50 50 \
            C40 40, 30 20, 40 10 \
            C50 0, 70 10, 60 20 \
            C50 30, 60 40, 50 50 \
@@ -21,7 +15,14 @@ export function App() {
            C60 50, 50 60, 50 50 \
            C40 60, 30 70, 20 60 \
            C10 50, 20 30, 30 40 \
-           C40 50, 50 40, 50 50 Z",
+           C40 50, 50 40, 50 50 Z`;
+           
+    // Add the shape to the design with the random color
+    await addNativeElement({
+      type: "SHAPE",
+      paths: [
+        {
+          d: pathString,
           fill: {
             color: randomColor,
           },
